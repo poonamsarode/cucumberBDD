@@ -1,0 +1,103 @@
+[
+  {
+    "line": 3,
+    "elements": [
+      {
+        "start_timestamp": "2023-02-27T07:44:57.383Z",
+        "line": 5,
+        "name": "User is able to Open the application and able to perform search opeartion",
+        "description": "",
+        "id": "e-commerce-project-web-site-health-check;user-is-able-to-open-the-application-and-able-to-perform-search-opeartion",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 5458470900,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User opened browser",
+            "match": {
+              "location": "vit.Aoutomation.stepdefs.StepDef.user_opened_browser()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 5981985800,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "User navigated to the landing page of application",
+            "match": {
+              "location": "vit.Aoutomation.stepdefs.StepDef.user_navigated_to_the_landing_page_of_application()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 7049986500,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "User Search for product \"Laptop\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Laptop\"",
+                  "offset": 24
+                }
+              ],
+              "location": "vit.Aoutomation.stepdefs.StepDef.user_search_for_product(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 224860400,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "Search Result page is displayed",
+            "match": {
+              "location": "vit.Aoutomation.stepdefs.StepDef.search_result_page_is_displayed()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui"
+          },
+          {
+            "name": "@healthCheak"
+          }
+        ]
+      }
+    ],
+    "name": "E-commerce Project Web Site Health Check",
+    "description": "",
+    "id": "e-commerce-project-web-site-health-check",
+    "keyword": "Feature",
+    "uri": "classpath:features/HealthCheak.feature",
+    "tags": [
+      {
+        "name": "@ui",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@healthCheak",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 5
+        }
+      }
+    ]
+  }
+]
