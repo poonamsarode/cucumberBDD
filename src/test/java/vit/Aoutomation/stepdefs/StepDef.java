@@ -1,5 +1,8 @@
 package vit.Aoutomation.stepdefs;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
@@ -38,8 +41,7 @@ public void user_navigated_to_the_landing_page_of_application() {
    
 }
 @When("User Search for product {string}")
-public void user_search_for_product(String productName) {
-	
+public void user_search_for_product(String productName) {	
     //Wait and Search for product
     WebDriverWait webDriverWait = new WebDriverWait(driver,20);
     WebElement elementSearchBox = webDriverWait.until(ExpectedConditions.elementToBeClickable(By.id("twotabsearchtextbox")));
@@ -50,16 +52,58 @@ public void user_search_for_product(String productName) {
    
 }
 @Then("Search Result page is displayed")
-public void search_result_page_is_displayed() {
+public void search_result_page_is_displayed(String productName ) {
 	
 	//Wait for title
     WebDriverWait webDriverWait1 = new WebDriverWait(driver,20);
-    webDriverWait1.until(ExpectedConditions.titleIs("Amazon.in : Laptop"));
+    webDriverWait1.until(ExpectedConditions.titleIs("Amazon.in : "+productName+""));
 
     //Assertion for Page Title
-    Assert.assertEquals("Page Title validation","Amazon.in : Laptop", driver.getTitle());
+    Assert.assertEquals("Page Title validation","Amazon.in : "+productName+"", driver.getTitle());
 }
+@Then("browser is closed")
+public void browser_is_closed()
+{
+	driver.quit();
+}
+
+@When("User click on any product")
+public void user_click_on_any_product() {
+	  //listOfProducts will have all the links displayed in the search box
+    List<WebElement> listOfProducts = driver.findElements(By.xpath("//a[@class='a-link-normal a-text-normal']"));
+
+    //But as this step asks click on any link, we can choose to click on Index 0 of the list
+    listOfProducts.get(0).click();
+} 
+
+
+@Then("Product Description is displayed in new tab")
+public void product_description_is_displayed_in_new_tab() {
+	
+	 //As product description click will open new tab, we need to switch the driver to the new tab
+    //If you do not switch, you can not access the new tab html elements
+    //This is how you do it
+    Set<String> handles = driver.getWindowHandles(); // get all the open windows
+    Iterator<String> it = handles.iterator(); // get the iterator to iterate the elements in set
+    String original = it.next();//gives the parent window id
+    String prodDescp = it.next();//gives the child window id
+
+    driver.switchTo().window(prodDescp); // switch to product Descp
+
+    //Now driver can access new driver window, but can not access the orignal tab
+    //Check product title is displayed
+    WebElement productTitle = driver.findElement(By.id("productTitle"));
+    Assert.assertEquals("Product Title",true,productTitle.isDisplayed());
+
+    WebElement addToCartButton = driver.findElement(By.xpath("//button[@title='Add to Shopping Cart']"));
+    Assert.assertEquals("Product Title",true,addToCartButton.isDisplayed());
+
+    //Switch back to the Original Window, however no other operation to be done
+    driver.switchTo().window(original);
     
+    }
+
+
 
 
 

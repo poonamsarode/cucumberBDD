@@ -3,20 +3,20 @@
     "line": 3,
     "elements": [
       {
-        "start_timestamp": "2023-02-27T07:44:57.383Z",
-        "line": 5,
-        "name": "User is able to Open the application and able to perform search opeartion",
+        "start_timestamp": "2023-02-28T10:22:44.252Z",
+        "line": 36,
+        "name": "User is click on the Product and check the Product Details",
         "description": "",
-        "id": "e-commerce-project-web-site-health-check;user-is-able-to-open-the-application-and-able-to-perform-search-opeartion",
+        "id": "e-commerce-project-web-site-health-check;user-is-click-on-the-product-and-check-the-product-details",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 5458470900,
+              "duration": 3672150000,
               "status": "passed"
             },
-            "line": 6,
+            "line": 37,
             "name": "User opened browser",
             "match": {
               "location": "vit.Aoutomation.stepdefs.StepDef.user_opened_browser()"
@@ -25,10 +25,10 @@
           },
           {
             "result": {
-              "duration": 5981985800,
+              "duration": 5819311300,
               "status": "passed"
             },
-            "line": 7,
+            "line": 38,
             "name": "User navigated to the landing page of application",
             "match": {
               "location": "vit.Aoutomation.stepdefs.StepDef.user_navigated_to_the_landing_page_of_application()"
@@ -37,10 +37,10 @@
           },
           {
             "result": {
-              "duration": 7049986500,
+              "duration": 6910078600,
               "status": "passed"
             },
-            "line": 8,
+            "line": 39,
             "name": "User Search for product \"Laptop\"",
             "match": {
               "arguments": [
@@ -51,19 +51,44 @@
               ],
               "location": "vit.Aoutomation.stepdefs.StepDef.user_search_for_product(java.lang.String)"
             },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 10691014700,
+              "status": "passed"
+            },
+            "line": 40,
+            "name": "User click on any product",
+            "match": {
+              "location": "vit.Aoutomation.stepdefs.StepDef.user_click_on_any_product()"
+            },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 224860400,
-              "status": "passed"
+              "error_message": "java.util.NoSuchElementException\r\n\tat java.base/java.util.LinkedHashMap$LinkedHashIterator.nextNode(LinkedHashMap.java:758)\r\n\tat java.base/java.util.LinkedHashMap$LinkedKeyIterator.next(LinkedHashMap.java:778)\r\n\tat vit.Aoutomation.stepdefs.StepDef.product_description_is_displayed_in_new_tab(StepDef.java:89)\r\n\tat ✽.Product Description is displayed in new tab(classpath:features/HealthCheak.feature:41)\r\n",
+              "duration": 27983200,
+              "status": "failed"
             },
-            "line": 9,
-            "name": "Search Result page is displayed",
+            "line": 41,
+            "name": "Product Description is displayed in new tab",
             "match": {
-              "location": "vit.Aoutomation.stepdefs.StepDef.search_result_page_is_displayed()"
+              "location": "vit.Aoutomation.stepdefs.StepDef.product_description_is_displayed_in_new_tab()"
             },
             "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 999900,
+              "status": "skipped"
+            },
+            "line": 42,
+            "name": "browser is closed",
+            "match": {
+              "location": "vit.Aoutomation.stepdefs.StepDef.browser_is_closed()"
+            },
+            "keyword": "And "
           }
         ],
         "tags": [
@@ -72,6 +97,9 @@
           },
           {
             "name": "@healthCheak"
+          },
+          {
+            "name": "@prodDesc"
           }
         ]
       }
