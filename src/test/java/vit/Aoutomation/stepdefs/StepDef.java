@@ -13,24 +13,43 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class StepDef {
-	
+	    Scenario scn;
 	    WebDriver driver;
 	    String base_url = "https://amazon.in";
 	    int implicit_wait_timeout_in_sec = 20;
 
+@Before
+public void Setup(Scenario scn)
+{
+	this.scn = scn ;
+	driver = new ChromeDriver();
+    driver.manage().window().maximize();
+    driver.manage().timeouts().implicitlyWait(implicit_wait_timeout_in_sec, TimeUnit.SECONDS);
+    scn.log("Browser got invoked");
+}
+@After
+public void tearDown ()
+{
+	driver.quit();
+	scn.log("Browser got closed");
+}
 
-@Given("User opened browser")
-public void user_opened_browser() {
+/*@Given("User opened browser")
+public void user_opened_browser() 
+{
 	driver = new ChromeDriver();
     driver.manage().window().maximize();
     driver.manage().timeouts().implicitlyWait(implicit_wait_timeout_in_sec, TimeUnit.SECONDS);
    
-}
+}*/
 
 @Given("User navigated to the landing page of application")
 public void user_navigated_to_the_landing_page_of_application() {
@@ -38,7 +57,7 @@ public void user_navigated_to_the_landing_page_of_application() {
      String expected = "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
      String actual =driver.getTitle();
      Assert.assertEquals("Page Title validation",expected,actual);
-   
+     scn.log("User navigated to the landing page of application");
 }
 @When("User Search for product {string}")
 public void user_search_for_product(String productName) {	
@@ -48,8 +67,8 @@ public void user_search_for_product(String productName) {
 
     elementSearchBox.sendKeys(productName);
     driver.findElement(By.xpath("//input[@value='Go']")).click();
-
-   
+    scn.log("User Searched for product "); 
+       
 }
 @Then("Search Result page is displayed")
 public void search_result_page_is_displayed(String productName ) {
@@ -60,12 +79,13 @@ public void search_result_page_is_displayed(String productName ) {
 
     //Assertion for Page Title
     Assert.assertEquals("Page Title validation","Amazon.in : "+productName+"", driver.getTitle());
+    scn.log("Search Result page is displayed");
 }
-@Then("browser is closed")
+/*@Then("browser is closed")
 public void browser_is_closed()
 {
 	driver.quit();
-}
+}*/
 
 @When("User click on any product")
 public void user_click_on_any_product() {
@@ -74,6 +94,7 @@ public void user_click_on_any_product() {
 
     //But as this step asks click on any link, we can choose to click on Index 0 of the list
     listOfProducts.get(0).click();
+    scn.log("User click on  product");
 } 
 
 
@@ -100,6 +121,7 @@ public void product_description_is_displayed_in_new_tab() {
 
     //Switch back to the Original Window, however no other operation to be done
     driver.switchTo().window(original);
+    scn.log("Product Description is displayed in new tab");
     
     }
 
