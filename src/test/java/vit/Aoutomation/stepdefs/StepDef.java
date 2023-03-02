@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +14,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -21,6 +22,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class StepDef {
+	private static final Logger logger = LogManager.getLogger(StepDef.class);
+
 	    Scenario scn;
 	    WebDriver driver;
 	    String base_url = "https://amazon.in";
@@ -31,14 +34,18 @@ public void Setup(Scenario scn)
 {
 	this.scn = scn ;
 	driver = new ChromeDriver();
+	 logger.info("Browser got set" );
     driver.manage().window().maximize();
+    logger.info("Browser got maximized" );
     driver.manage().timeouts().implicitlyWait(implicit_wait_timeout_in_sec, TimeUnit.SECONDS);
+    logger.info("Browser implicit timeout set to -> " + implicit_wait_timeout_in_sec);
     scn.log("Browser got invoked");
 }
 @After
 public void tearDown ()
 {
 	driver.quit();
+    logger.info("Browser got closed" );
 	scn.log("Browser got closed");
 }
 
@@ -54,19 +61,25 @@ public void user_opened_browser()
 @Given("User navigated to the landing page of application")
 public void user_navigated_to_the_landing_page_of_application() {
 	 driver.get(base_url);
+	 logger.info("Browser got invoked with url as - > "+ base_url );
+
      String expected = "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
      String actual =driver.getTitle();
      Assert.assertEquals("Page Title validation",expected,actual);
+	 logger.info("Assertion for page title validation is passed with expected as -> " + expected + "and actual as ->" +actual    );
      scn.log("User navigated to the landing page of application");
 }
 @When("User Search for product {string}")
 public void user_search_for_product(String productName) {	
     //Wait and Search for product
     WebDriverWait webDriverWait = new WebDriverWait(driver,20);
+	 logger.info(" webDriverWait time out set to ->" + 20 );
     WebElement elementSearchBox = webDriverWait.until(ExpectedConditions.elementToBeClickable(By.id("twotabsearchtextbox")));
-
+	 logger.info("waiting for WebElement - > elementSearchBox to be clickable");
     elementSearchBox.sendKeys(productName);
+    logger.info("sending keys into WebElement -> elementSearchBox ");
     driver.findElement(By.xpath("//input[@value='Go']")).click();
+    logger.info("clicking on the search button ");
     scn.log("User Searched for product "); 
        
 }
@@ -81,11 +94,11 @@ public void search_result_page_is_displayed(String productName ) {
     Assert.assertEquals("Page Title validation","Amazon.in : "+productName+"", driver.getTitle());
     scn.log("Search Result page is displayed");
 }
-/*@Then("browser is closed")
+@Then("browser is closed")
 public void browser_is_closed()
 {
 	driver.quit();
-}*/
+}
 
 @When("User click on any product")
 public void user_click_on_any_product() {

@@ -14,7 +14,7 @@ import io.cucumber.junit.CucumberOptions;
 	            "html:target/html/htmlreport.html",
 	            "json:target/json/file.json",
 	            },
-		 //   monochrome = true,    // this is used for remove the foreign characters 
+		    monochrome = true,    // this is used for remove the foreign characters 
 	        publish=true,
 	        dryRun=false // to tell whether to test run(true) or actual run(false)
 	
