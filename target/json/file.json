@@ -3,14 +3,14 @@
     "line": 3,
     "elements": [
       {
-        "start_timestamp": "2023-03-02T04:02:37.831Z",
+        "start_timestamp": "2023-03-03T07:33:32.723Z",
         "before": [
           {
             "output": [
               "Browser got invoked"
             ],
             "result": {
-              "duration": 6754640300,
+              "duration": 5540313200,
               "status": "passed"
             },
             "match": {
@@ -28,7 +28,7 @@
               "Browser got closed"
             ],
             "result": {
-              "duration": 509345400,
+              "duration": 705560000,
               "status": "passed"
             },
             "match": {
@@ -44,7 +44,7 @@
               "User navigated to the landing page of application"
             ],
             "result": {
-              "duration": 7060287400,
+              "duration": 7120040300,
               "status": "passed"
             },
             "line": 8,
@@ -59,7 +59,7 @@
               "User Searched for product "
             ],
             "result": {
-              "duration": 8855414000,
+              "duration": 6365036700,
               "status": "passed"
             },
             "line": 9,
@@ -78,7 +78,7 @@
           {
             "result": {
               "error_message": "io.cucumber.core.exception.CucumberException: Step [Search Result page is displayed] is defined with 1 parameters at \u0027vit.Aoutomation.stepdefs.StepDef.search_result_page_is_displayed(java.lang.String)\u0027.\nHowever, the gherkin step has 0 arguments.\nStep text: Search Result page is displayed\r\n\tat io.cucumber.core.runner.PickleStepDefinitionMatch.arityMismatch(PickleStepDefinitionMatch.java:83)\r\n\tat io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:42)\r\n\tat io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)\r\n\tat io.cucumber.core.runner.TestStep.executeStep(TestStep.java:92)\r\n\tat io.cucumber.core.runner.TestStep.run(TestStep.java:64)\r\n\tat io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)\r\n\tat io.cucumber.core.runner.TestCase.run(TestCase.java:104)\r\n\tat io.cucumber.core.runner.Runner.runPickle(Runner.java:71)\r\n\tat io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:151)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:135)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:27)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:199)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:90)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:234)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:93)\r\n\tat org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)\r\n\tat org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:529)\r\n\tat org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:756)\r\n\tat org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:452)\r\n\tat org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)\r\n",
-              "duration": 4997500,
+              "duration": 6000700,
               "status": "failed"
             },
             "line": 10,
@@ -102,14 +102,14 @@
         ]
       },
       {
-        "start_timestamp": "2023-03-02T04:03:01.294Z",
+        "start_timestamp": "2023-03-03T07:33:52.686Z",
         "before": [
           {
             "output": [
               "Browser got invoked"
             ],
             "result": {
-              "duration": 2797648300,
+              "duration": 1727100500,
               "status": "passed"
             },
             "match": {
@@ -127,7 +127,7 @@
               "Browser got closed"
             ],
             "result": {
-              "duration": 430599500,
+              "duration": 582463600,
               "status": "passed"
             },
             "match": {
@@ -143,7 +143,7 @@
               "User navigated to the landing page of application"
             ],
             "result": {
-              "duration": 5876378000,
+              "duration": 5735400900,
               "status": "passed"
             },
             "line": 16,
@@ -158,7 +158,7 @@
               "User Searched for product "
             ],
             "result": {
-              "duration": 9988425100,
+              "duration": 5844134300,
               "status": "passed"
             },
             "line": 17,
@@ -177,7 +177,7 @@
           {
             "result": {
               "error_message": "io.cucumber.core.exception.CucumberException: Step [Search Result page is displayed] is defined with 1 parameters at \u0027vit.Aoutomation.stepdefs.StepDef.search_result_page_is_displayed(java.lang.String)\u0027.\nHowever, the gherkin step has 0 arguments.\nStep text: Search Result page is displayed\r\n\tat io.cucumber.core.runner.PickleStepDefinitionMatch.arityMismatch(PickleStepDefinitionMatch.java:83)\r\n\tat io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:42)\r\n\tat io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)\r\n\tat io.cucumber.core.runner.TestStep.executeStep(TestStep.java:92)\r\n\tat io.cucumber.core.runner.TestStep.run(TestStep.java:64)\r\n\tat io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)\r\n\tat io.cucumber.core.runner.TestCase.run(TestCase.java:104)\r\n\tat io.cucumber.core.runner.Runner.runPickle(Runner.java:71)\r\n\tat io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:151)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:135)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:27)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:199)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:90)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:234)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:93)\r\n\tat org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)\r\n\tat org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:529)\r\n\tat org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:756)\r\n\tat org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:452)\r\n\tat org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)\r\n",
-              "duration": 999800,
+              "duration": 1000800,
               "status": "failed"
             },
             "line": 18,
@@ -197,120 +197,6 @@
           },
           {
             "name": "@Search"
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2023-03-02T04:03:20.442Z",
-        "before": [
-          {
-            "output": [
-              "Browser got invoked"
-            ],
-            "result": {
-              "duration": 1868869000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "vit.Aoutomation.stepdefs.StepDef.Setup(io.cucumber.java.Scenario)"
-            }
-          }
-        ],
-        "line": 36,
-        "name": "User is click on the Product and check the Product Details",
-        "description": "",
-        "id": "e-commerce-project-web-site-health-check;user-is-click-on-the-product-and-check-the-product-details",
-        "after": [
-          {
-            "output": [
-              "Browser got closed"
-            ],
-            "result": {
-              "duration": 413597300,
-              "status": "passed"
-            },
-            "match": {
-              "location": "vit.Aoutomation.stepdefs.StepDef.tearDown()"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "output": [
-              "User navigated to the landing page of application"
-            ],
-            "result": {
-              "duration": 4509457100,
-              "status": "passed"
-            },
-            "line": 38,
-            "name": "User navigated to the landing page of application",
-            "match": {
-              "location": "vit.Aoutomation.stepdefs.StepDef.user_navigated_to_the_landing_page_of_application()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "output": [
-              "User Searched for product "
-            ],
-            "result": {
-              "duration": 5791929000,
-              "status": "passed"
-            },
-            "line": 39,
-            "name": "User Search for product \"Laptop\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Laptop\"",
-                  "offset": 24
-                }
-              ],
-              "location": "vit.Aoutomation.stepdefs.StepDef.user_search_for_product(java.lang.String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "output": [
-              "User click on  product"
-            ],
-            "result": {
-              "duration": 10024326100,
-              "status": "passed"
-            },
-            "line": 40,
-            "name": "User click on any product",
-            "match": {
-              "location": "vit.Aoutomation.stepdefs.StepDef.user_click_on_any_product()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "error_message": "java.util.NoSuchElementException\r\n\tat java.base/java.util.LinkedHashMap$LinkedHashIterator.nextNode(LinkedHashMap.java:758)\r\n\tat java.base/java.util.LinkedHashMap$LinkedKeyIterator.next(LinkedHashMap.java:778)\r\n\tat vit.Aoutomation.stepdefs.StepDef.product_description_is_displayed_in_new_tab(StepDef.java:123)\r\n\tat ✽.Product Description is displayed in new tab(classpath:features/HealthCheak.feature:41)\r\n",
-              "duration": 7995700,
-              "status": "failed"
-            },
-            "line": 41,
-            "name": "Product Description is displayed in new tab",
-            "match": {
-              "location": "vit.Aoutomation.stepdefs.StepDef.product_description_is_displayed_in_new_tab()"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@ui"
-          },
-          {
-            "name": "@healthCheak"
-          },
-          {
-            "name": "@prodDesc"
           }
         ]
       }

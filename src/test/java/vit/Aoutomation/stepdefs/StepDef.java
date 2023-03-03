@@ -20,6 +20,9 @@ import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import vit.Aoutomation.pageObjects.LandingPageObjects;
+import vit.Aoutomation.pageObjects.ProductDescPageObject;
+import vit.Aoutomation.pageObjects.ProductListingPageObjects;
 
 public class StepDef {
 	private static final Logger logger = LogManager.getLogger(StepDef.class);
@@ -28,18 +31,30 @@ public class StepDef {
 	    WebDriver driver;
 	    String base_url = "https://amazon.in";
 	    int implicit_wait_timeout_in_sec = 20;
+		 WebDriverWait webDriverWait;
+		 
+		 LandingPageObjects landingPageObjects;
+		 ProductListingPageObjects productListingPageObjects;
+		 ProductDescPageObject productDescPageObject;
 
 @Before
 public void Setup(Scenario scn)
 {
 	this.scn = scn ;
 	driver = new ChromeDriver();
+	webDriverWait = new WebDriverWait(driver,20);
 	 logger.info("Browser got set" );
     driver.manage().window().maximize();
     logger.info("Browser got maximized" );
     driver.manage().timeouts().implicitlyWait(implicit_wait_timeout_in_sec, TimeUnit.SECONDS);
     logger.info("Browser implicit timeout set to -> " + implicit_wait_timeout_in_sec);
     scn.log("Browser got invoked");
+    
+    // Initialize Class objects 
+    
+    landingPageObjects = new LandingPageObjects(driver, webDriverWait);
+    productListingPageObjects = new ProductListingPageObjects(driver, webDriverWait);
+    productDescPageObject = new ProductDescPageObject(driver,webDriverWait);
 }
 @After
 public void tearDown ()
@@ -60,26 +75,27 @@ public void user_opened_browser()
 
 @Given("User navigated to the landing page of application")
 public void user_navigated_to_the_landing_page_of_application() {
-	 driver.get(base_url);
+/*	 driver.get(base_url);
 	 logger.info("Browser got invoked with url as - > "+ base_url );
-
      String expected = "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
      String actual =driver.getTitle();
      Assert.assertEquals("Page Title validation",expected,actual);
-	 logger.info("Assertion for page title validation is passed with expected as -> " + expected + "and actual as ->" +actual    );
+	 logger.info("Assertion for page title validation is passed with expected as -> " + expected + "and actual as ->" +actual    );*/
+	landingPageObjects.validateUserIsOnlandingPage(base_url);
      scn.log("User navigated to the landing page of application");
 }
 @When("User Search for product {string}")
 public void user_search_for_product(String productName) {	
     //Wait and Search for product
-    WebDriverWait webDriverWait = new WebDriverWait(driver,20);
+ /*   WebDriverWait webDriverWait = new WebDriverWait(driver,20);
 	 logger.info(" webDriverWait time out set to ->" + 20 );
     WebElement elementSearchBox = webDriverWait.until(ExpectedConditions.elementToBeClickable(By.id("twotabsearchtextbox")));
 	 logger.info("waiting for WebElement - > elementSearchBox to be clickable");
     elementSearchBox.sendKeys(productName);
     logger.info("sending keys into WebElement -> elementSearchBox ");
     driver.findElement(By.xpath("//input[@value='Go']")).click();
-    logger.info("clicking on the search button ");
+    logger.info("clicking on the search button "); */
+	landingPageObjects.searchProduct(productName);
     scn.log("User Searched for product "); 
        
 }
@@ -87,26 +103,28 @@ public void user_search_for_product(String productName) {
 public void search_result_page_is_displayed(String productName ) {
 	
 	//Wait for title
-    WebDriverWait webDriverWait1 = new WebDriverWait(driver,20);
+ /*   WebDriverWait webDriverWait1 = new WebDriverWait(driver,20);
     webDriverWait1.until(ExpectedConditions.titleIs("Amazon.in : "+productName+""));
 
     //Assertion for Page Title
-    Assert.assertEquals("Page Title validation","Amazon.in : "+productName+"", driver.getTitle());
+    Assert.assertEquals("Page Title validation","Amazon.in : "+productName+"", driver.getTitle());*/
+	productListingPageObjects.validateSearchResult(productName);
     scn.log("Search Result page is displayed");
 }
-@Then("browser is closed")
+/*@Then("browser is closed")
 public void browser_is_closed()
 {
 	driver.quit();
-}
+}*/
 
 @When("User click on any product")
 public void user_click_on_any_product() {
-	  //listOfProducts will have all the links displayed in the search box
+/*	  //listOfProducts will have all the links displayed in the search box
     List<WebElement> listOfProducts = driver.findElements(By.xpath("//a[@class='a-link-normal a-text-normal']"));
 
     //But as this step asks click on any link, we can choose to click on Index 0 of the list
-    listOfProducts.get(0).click();
+    listOfProducts.get(0).click();*/
+	productDescPageObject.clickOnAnyProduct();
     scn.log("User click on  product");
 } 
 
@@ -129,7 +147,7 @@ public void product_description_is_displayed_in_new_tab() {
     WebElement productTitle = driver.findElement(By.id("productTitle"));
     Assert.assertEquals("Product Title",true,productTitle.isDisplayed());
 
-    WebElement addToCartButton = driver.findElement(By.xpath("//button[@title='Add to Shopping Cart']"));
+    WebElement addToCartButton = driver.findElement(By.xpath("//input[@title='Add to Shopping Cart']"));
     Assert.assertEquals("Product Title",true,addToCartButton.isDisplayed());
 
     //Switch back to the Original Window, however no other operation to be done

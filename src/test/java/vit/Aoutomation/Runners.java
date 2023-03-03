@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features = "classpath:features",
 		glue = "vit.Aoutomation.stepdefs",
-		tags = "@ui ",
+		tags = "@Search ",
 		plugin =  {"pretty", // to generate reports
 	            "html:target/html/htmlreport.html",
 	            "json:target/json/file.json",
